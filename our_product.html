@@ -17,6 +17,31 @@
     function closeNav() {
       document.getElementById("Menu").style.width = "0";
     }
+
+    
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+    }
 </script>
 
 <header>
@@ -50,7 +75,7 @@
         We recommend an automated supply subscription for lunar settlements and Pay-by-Tank supply for rocket launches.
     </p>
     <h2>Our facilities and technologies</h2>
-    <img src="pics/process_diagram.png", alt="Our team", width="70%", class="center", style="max-width:600px; border-radius:7%"/>
+    <img src="pics/process_diagram.png", alt="mO=On facilities process diagram", width="70%", class="center", style="max-width:600px; border-radius:7%"/>
     <p>
         We have designed several facilities to implement our extraction, storage and transport technologies, which are all closely linked together by pipes.
         The walls of all facilities are made out of microwave sintered ceramic, a material that is highly resistant to extreme temperatures.
@@ -73,11 +98,43 @@
         Our canisters are monitored by an ultrasonic level monitoring system, and the information can be viewed by customers via an app.
         The app can also alert customers to request a refill when it's near empty.
         <br>
-        <br>
-        <br>
-        <br>
     </p>
+    <div class="slideshow-container">
+        <div class="slides fade">
+          <img src="pics/app_homepage.png", alt="mO=On app home page", width="100%", style="max-width:600px; border-radius:7%">
+          <div class="text">Home page</div>
+        </div>
+      
+        <div class="slides fade">
+          <img src="pics/app_orders.png", alt="mO=On app orders page", width="100%", style="max-width:600px; border-radius:7%">
+          <div class="text">Orders</div>
+        </div>
+      
+        <div class="slides fade">
+          <img src="pics/app_settings.png", alt="mO=On app settings page", width="100%", style="max-width:600px; border-radius:7%">
+          <div class="text">Settings</div>
+        </div>
+      
+        <!-- prev & next buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <!-- dots -->
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <br>
+    <br>
+    <br>
 </body>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+</script>
 
 <footer>
     <br>
