@@ -234,7 +234,7 @@ span:hover {
     font-size: 12px;
     padding: 7px 10px;
     position: absolute;
-    bottom: 7px;
+    bottom: -22px;
     width: 100%;
     text-align: center;
 }
